@@ -1,0 +1,42 @@
+.gameHeader {
+ background: transparent;
+ color: #fff;
+}
+
+.gameHeader__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 30px;
+    
+    @include for-phone {
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 15px;
+    }
+}
+
+.gameHeader__title {
+    margin: 0;
+    color: #fff;
+}
+
+.gameHeader__controls {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.gameHeader__controls-listItem {
+    font-size: 20px;
+}
+
+.gameHeader__controls-button {
+    border: #fff 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}

@@ -1,1 +1,44 @@
+@import './mixins';
+@import './layout/header';
+@import './layout/modal';
+@import './layout/card';
 
+html{
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url('/images/background.jpeg') no-repeat center / cover;
+
+}
+
+.gameContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gameContainer__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 180px);
+  row-gap: 10px;
+  column-gap: 10px;
+  padding: 60px;
+  justify-content: center;
+
+  @include for-tablet {
+    grid-template-columns: repeat(3, 180px);
+  }
+
+  @include for-phone {
+    grid-template-columns: repeat(2, 180px);
+  }
+}
+
+
+.gameContainer__reset {
+  display: flex;
+  margin: 10px auto;
+  padding: 10px 25px;
+  cursor: pointer;
+}
