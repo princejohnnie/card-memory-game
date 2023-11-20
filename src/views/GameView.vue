@@ -17,29 +17,20 @@ const showGameWinModal = ref(false)
 
 const cards = ref([])
 
+const cardPair = ref([])
+
 cards.value = shuffleCards()
 
 watch(numOfAttempts, () => {
-  console.log('Numebr of Attempts -> ' + numOfAttempts.value)
   if (numOfAttempts.value === 0) {
     showGameOverModal.value = true
-    console.log('Game Over!')
   }
 })
-
-watch(totalScore, () => {
-  // showingGameWinModal.value = true
-  console.log('Total Score -> ' + totalScore.value)
-})
-
-const cardPair = ref([])
 
 watch(
   cardPair.value,
   (newPair) => {
-    console.log('Watch Card Pair', newPair)
     if (newPair.length == 2) {
-      console.log('Length is 2')
       matchCard(newPair)
       return
     }
@@ -61,12 +52,10 @@ const matchCard = (newCardPair) => {
       cardPair.value.length = 0
     }, 500)
   } else {
-    console.log('Matched Card')
     setTimeout(() => {
       newCardPair.forEach((card) => (card.flipped = false))
       numOfAttempts.value--
       cardPair.value.length = 0
-      console.log('Emplty card pair', cardPair.value.length)
     }, 1000)
   }
 }
